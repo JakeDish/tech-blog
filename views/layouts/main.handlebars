@@ -1,0 +1,90 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+ 
+
+
+  <title>Tech Blog</title>
+</head>
+
+<body class="has-background-grey-light">
+
+  <section class="hero is-info is-large has-background-black-bis">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              <h1 class="title is-1 has-text-weight-bold">Tech Blog<i class="fa-solid fa-film ml-2"></i></h1>
+
+            </a>
+            <span class="navbar-burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu">
+            <div class="navbar-end">
+
+
+              <a class="navbar-item 
+      
+                {{#if active.homepage}}is-active{{/if}}" href="/">
+                <i class="fa-solid fa-house"></i>Home
+              </a>
+
+              <a class="navbar-item {{#if active.dashboard}}is-active{{/if}}" href="/dashboard"><i
+                  class="fa-regular fa-clipboard"></i>
+                Dashboard
+              </a>
+              <a class="navbar-item {{#if active.likes}}is-active{{/if}}" href="/likes">
+                <i class="fa-regular fa-heart"></i>Likes
+              </a>
+
+
+
+              <!--Using If Helper to render Login or logout -->
+              <span class="navbar-item">
+
+                {{#if logged_in}}
+                <button class="no-button button mr-3" id="logout"><i class="fa-regular fa-circle-user"></i>Log
+                  Out</button>
+                {{else}}
+                <a class="button is-info is-inverted mr-4" href="/login">
+                  <span><i class="fa-regular fa-circle-user"></i>Login</span>
+                </a>
+                {{/if}}
+
+
+                <a class="button is-info is-inverted is-success" href="/signup">
+                  <span><i class="fa-regular fa-pen-to-square"></i>Sign Up</span>
+                </a>
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  </section>
+  <div class="container is-max-desktop">
+    <div class="notification has-background-info-light mt-6">
+
+      {{{body}}}
+    </div>
+  </div>
+
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+
+</body>
+
+</html>
