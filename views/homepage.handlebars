@@ -6,9 +6,11 @@
     </div>
 
     <div class="column is-flex-direction-row">
-      <span class="title">{{User.username}}'s post</span><br>
+      <a href="/post/{{id}}">
+      <span class="title">{{post.title}}</span><br>
       <span class="subtitle"><br>{{post.content}}<br></span><br>
-      <p class="note">{{format_date createdAt}}</p>
+      <p class="note">Created on {{format_date createdAt}} by {{user.username}}</p>
+      </a>
     </div>
   </div>
 </div>
