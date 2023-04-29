@@ -1,0 +1,32 @@
+[
+  {
+    "comment_text": "JavaScript is a high-level, often just-in-time compiled language that conforms to the ECMAScript standard.[10] It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+   "comment_text": "React code is made of entities called components. These components are modular and reusable. React applications typically consist of many layers of components. The components are be rendered to a root element in the DOM using the React DOM library. When rendering a component, values are passed between components through props (short for 'properties'). Values internal to a component are called its state. The two primary ways of declaring components in React are through function components and class components.",
+    "user_id": 3,
+    "post_id": 2
+  },
+  {
+   "comment_text": "SQL became a standard of the American National Standards Institute (ANSI) in 1986 and of the International Organization for Standardization (ISO) in 1987.[11] Since then, the standard has been revised to include a larger set of features. Despite the existence of standards, most SQL code requires at least some changes before being ported to different database systems.",
+    "user_id": 1,
+    "post_id": 3
+  },
+  {
+   "comment_text": "SQL was initially developed at IBM by Donald D. Chamberlin and Raymond F. Boyce after learning about the relational model from Edgar F. Codd in the early 1970s. This version, initially called SEQUEL (Structured English Query Language), was designed to manipulate and retrieve data stored in IBM's original quasirelational database management system, System R, which a group at IBM San Jose Research Laboratory had developed during the 1970s",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+   "comment_text": "In 1980, physicist Tim Berners-Lee, a contractor at CERN, proposed and prototyped ENQUIRE, a system for CERN researchers to use and share documents. In 1989, Berners-Lee wrote a memo proposing an Internet-based hypertext system. Berners-Lee specified HTML and wrote the browser and server software in late 1990. That year, Berners-Lee and CERN data systems engineer Robert Cailliau collaborated on a joint request for funding, but the project was not formally adopted by CERN. In his personal notes of 1990, Berners-Lee listed 'some of the many areas in which hypertext is used'; an encyclopedia is the first entry",
+    "user_id": 1,
+    "post_id": 4
+  },
+  {
+   "comment_text": "Node.js lets developers use JavaScript to write command line tools and for server-side scripting. The ability to run JavaScript code on the server is often used to generate dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a 'JavaScript everywhere' paradigm, unifying web-application development around a single programming language, as opposed to using different languages for the server- versus client-side programming.",
+    "user_id": 2,
+    "post_id": 6
+  }
+]
