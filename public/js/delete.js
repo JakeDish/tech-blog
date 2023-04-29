@@ -13,6 +13,6 @@ const deleteHandler = async (event) => {
   }
 };
 
-[...document.querySelectorAll(".deleteBtn")].forEach(function (item) {
+document.getElementById(".deleteBtn").forEach(function (item) {
   item.addEventListener("click", deleteHandler);
 });

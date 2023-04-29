@@ -1,3 +1,4 @@
+const { User, Post, Comment } = require('./models');
 const path = require("path");
 const express = require("express");
 const session = require("express-session");
@@ -16,7 +17,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: "Super secret secret",
   cookie: {
-    maxAge: 60 * 60 * 1000,
+    maxAge: 3000000,
     httpOnly: true,
     secure: false,
     sameSite: "strict",
@@ -24,8 +25,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize,
-  }),
+    db: sequelize
+  })
 };
 
 app.use(session(sess));

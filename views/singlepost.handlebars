@@ -4,13 +4,20 @@
 
 
     <div class="column is-flex-direction-row">
-      <span id="post-title" class="title" contenteditable="true">{{post.title}}</span><br />
-      <span id="post-text" class="content" contenteditable="true"><br>{{post.content}}<br></span><br />
+      <span id="post-title" class="title" >{{post.title}}</span><br />
+      <span id="post-text" class="content" ><br>{{post.content}}<br></span><br />
+      <p class="note">Created on {{format_date createdAt}} by {{user.username}}</p>
+      <input id="post-id" type="hidden" value="{{post.id}}"></input>
+        <form class="new-comment" action="/html/tags/html_form_tag_action.cfm" method="post">
+          <div>
+            <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+              Add a comment!
+            </textarea>
+          </div>
+          <input type="submit" value="Submit" >
+        </form>
 
 
-
-      <button id="save-button" class="button is-success is-outlined mt-3"><i class="fa-regular fa-circle-check"></i>Save
-        Changes</button>
     </div>
   </div>
 </div>

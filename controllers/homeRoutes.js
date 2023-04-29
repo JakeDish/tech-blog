@@ -51,16 +51,17 @@ router.get("/dashboard", withAuth, async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  console.log("here")
   const postData = await Post.findAll({
-    include: [User],
+    include: [User, Comment],
   });
   let post = postData.map((post) => post.get({ plain: true }));
-
+  console.log(post)
   res.render("homepage", {
     post,
-    logged_in: req.session.logged_in,
-    title: "homepage",
-    active: { homepage: true },
+    // logged_in: req.session.logged_in,
+    // title: "homepage",
+    // active: { homepage: true },
   });
 });
 
