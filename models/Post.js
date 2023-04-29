@@ -10,8 +10,12 @@ Post.init({
     primaryKey: true,
     autoIncrement: true,
   },
+  title: {
+    type: DataTypes.STRING
+    allowNull: false,
+  }
   content: {
-    type: DataTypes.TEXT("long"),
+    type: DataTypes.STRING,
     allowNull: false,
   },
   user_id: {
