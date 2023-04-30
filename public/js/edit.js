@@ -28,6 +28,4 @@ const editPost = async (event) => {
   }
 };
 
-document
-  .querySelector("#save-button")
-  .addEventListener("click", editPost);
+document.getElementById("#save-button").addEventListener("click", editPost);

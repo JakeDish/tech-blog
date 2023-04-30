@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Comment, User, Post } = require("../models");
 const withAuth = require("../utils/auth");
+const format_date = require('../utils/helpers');
 
 router.get("/signup", async (req, res) => {
   res.render("signup");
@@ -14,9 +15,9 @@ router.get("/post", withAuth, async (req, res) => {
   try {
     let user = req.session.user_id;
     const postData = await Post.findAll({
-      where: {
-        user_id: user,
-      },
+      // where: {
+      //   user_id: user,
+      // },
       include :[Comment]
     });
     const post = postData.map((post) => post.get({ plain: true }));
@@ -31,38 +32,52 @@ router.get("/post", withAuth, async (req, res) => {
   }
 });
 
-router.get("/dashboard", withAuth, async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Post }],
-    });
+// router.get("/dashboard", withAuth, async (req, res) => {
+//   try {
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ["password"] },
+//       include: [{ model: Post,
+//       required:true }],
+//     });
 
-    const user = userData.get({ plain: true });
-    res.render("dashboard", {
-      ...user,
-      logged_in: true,
-      title: "dashboard",
-      active: { dashboard: true },
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const user = userData.get({ plain: true });
+//     res.render("dashboard", {
+//       ...user,
+//       logged_in: true,
+//       title: "dashboard",
+//       active: { dashboard: true },
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/", async (req, res) => {
-  console.log("here")
+  try{
   const postData = await Post.findAll({
-    include: [User, Comment],
+    include: [
+      {
+        model: Comment,
+        required: true,
+      },
+      {
+        model: User,
+        required: true,
+      },
+    ],
   });
-  let post = postData.map((post) => post.get({ plain: true }));
-  console.log(post)
+
+  const posts = postData.map((post) => post.get({ plain: true }));
+
   res.render("homepage", {
-    post,
+    posts,
     // logged_in: req.session.logged_in,
     // title: "homepage",
     // active: { homepage: true },
   });
+} catch (err) {
+  res.status(500).json(err)
+}
 });
 
 router.get("/post/:id", async (req, res) => {
@@ -71,12 +86,16 @@ router.get("/post/:id", async (req, res) => {
       include: [
         {
           model: Comment,
-          include: [User],
+          required: true,
+        },
+        {
+          model: User,
+          required: true
         },
       ],
     });
     const post = postData.get({ plain: true });
-    res.render("onepost", { post });
+    res.render("singlepost", { post });
   } catch (err) {
     res.status(500).json(err);
   }

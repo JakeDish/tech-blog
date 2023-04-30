@@ -3,9 +3,9 @@ const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
-  Post.findAll({ include: [User], include: [Comment] })
+  Post.findAll({ include: [User, Comment] })
     .then((post) => {
-      res.json(Post);
+      res.json(post);
     })
     .catch((err) => {
       console.log(err);
@@ -17,9 +17,18 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    include: [User],
+    include: [
+      {
+        model:User,
+        required:true,
+       },
+       {
+        model: Comment,
+        required:true,
+       } 
+      ],
   })
-    .then((Post) => {
+    .then((post) => {
       res.json(post);
     })
     .catch((err) => {

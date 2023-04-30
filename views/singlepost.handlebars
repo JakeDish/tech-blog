@@ -6,20 +6,27 @@
     <div class="column is-flex-direction-row">
       <span id="post-title" class="title" >{{post.title}}</span><br />
       <span id="post-text" class="content" ><br>{{post.content}}<br></span><br />
-      <p class="note">Created on {{format_date createdAt}} by {{user.username}}</p>
+      <p class="note">{{post.user.user_name}}'s Post</p>
       <input id="post-id" type="hidden" value="{{post.id}}"></input>
-        <form class="new-comment" action="/html/tags/html_form_tag_action.cfm" method="post">
+        <form class="new-comment">
           <div>
-            <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
-              Add a comment!
+            <textarea name="comments" id="comments" placeholder="Add a Comment!">
             </textarea>
           </div>
-          <input type="submit" value="Submit" >
+          
+
+          <input id="save-button" type="submit" value="Submit" >
         </form>
 
-
+            {{#each post.comments as |comment|}}
+              <div class="border border-primary">
+                <div>{{comment.comment_text}}</div>
+                <div>{{comment.user.username}}</div>
+              </div>
+            {{/each}}
     </div>
   </div>
 </div>
 
-<script src="/js/edit.js"></script>
+{{!-- <script src="/js/edit.js"></script> --}}
+<script src="/js/comment.js"></script>

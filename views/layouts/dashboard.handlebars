@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container has-text-centered pb-3">
-    <p class="title white-title">{{user_name}}'s Dashboard</p>
+    <p class="title white-title">{{user.user_name}}'s Dashboard</p>
   </div>
 
   <form class="form new-post">
@@ -19,7 +19,7 @@
     </div>
   </form>
 
-  <h1 class="is-size-4 mt-5 white-title">{{user_name}}'s Posts:</h1>
+  <h1 class="is-size-4 mt-5 white-title">{{user.user_name}}'s Posts:</h1>
 
   {{#each posts as |post|}}
   <div class="box">
