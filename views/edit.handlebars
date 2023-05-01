@@ -4,12 +4,19 @@
 
 
     <div class="column is-flex-direction-row">
-      <span id="post-title" class="title" contenteditable="true">{{post.title}}</span><br />
-      <span id="post-text" class="content" contenteditable="true"><br>{{post.content}}<br></span><br />
+      {{!-- <span id="post-title" class="title" contenteditable="true">{{post.title}}</span><br /> --}}
+      {{!-- <span id="post-text" class="content" contenteditable="true"><br><br></span><br />
+      <div class="form-group"> --}}
+        {{!-- <label for="comment"></label> --}}
+        <textarea id="post-title" class="form-control content" rows="1" contenteditable="true">{{post.title}}</textarea>
+
+        <textarea id="post-text" class="form-control content" rows="5" contenteditable="true"
+        >{{post.content}}
+        </textarea>
+      </div>
 
 
-     
-      <button id="save-button" class="button is-success is-outlined mt-3"><i class="fa-regular fa-circle-check"></i>Save
+      <button id="save-button" class="button is-success is-outlined mt-3" da><i class="fa-regular fa-circle-check"></i>Save
         Changes</button>
     </div>
   </div>

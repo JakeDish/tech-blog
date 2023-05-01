@@ -1,15 +1,15 @@
 const editPost = async (event) => {
   event.preventDefault();
 
-  const postTitle = document.querySelector("#post-title").textContent;
-  const postText = document.querySelector("#post-text").textContent;
+  const title = document.querySelector("#post-title").value;
+  const content = document.querySelector("#post-text").value;
  
 
   // get post id from url
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-
+  console.log(id, title, content);
   const response = await fetch(`/api/post/${id}`, {
     method: "PUT",
     body: JSON.stringify({
@@ -22,10 +22,10 @@ const editPost = async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard");
+    document.location.replace(`/post/${id}`);
   } else {
     alert("not able to update");
   }
 };
 
-document.getElementById("#save-button").addEventListener("click", editPost);
+document.querySelector("#save-button").addEventListener("click", editPost);

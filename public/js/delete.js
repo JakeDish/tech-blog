@@ -1,6 +1,7 @@
 const deleteHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
+    console.log(id);
     const delete_post = await fetch(`/api/post/${id}`, {
       method: "DELETE",
     });
@@ -13,6 +14,6 @@ const deleteHandler = async (event) => {
   }
 };
 
-document.getElementById(".deleteBtn").forEach(function (item) {
+document.querySelectorAll(".deleteBtn").forEach(function (item) {
   item.addEventListener("click", deleteHandler);
 });

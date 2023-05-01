@@ -9,9 +9,7 @@ const loginFormHandler = async (event) => {
     // Send a POST request to the API endpoint
     const response = await fetch("/api/user/login", {
       method: "POST",
-      body: JSON.stringify({ 
-        user_name: user_name, 
-        password: password }),
+      body: JSON.stringify({ user_name, password }),
       headers: { "Content-Type": "application/json" },
     })
     console.log(JSON.stringify({ 
@@ -19,13 +17,16 @@ const loginFormHandler = async (event) => {
         password: password }));
 
     if (response.ok) {
-      // document.location.replace("/dashboard");
+      // session: async (session, user, sessionToken) => {
+      //   session.user = user.user
+      //   return Promise.resolve(session)
+      // }
+      // console.log(session)
+      document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
     }
   }
 };
 
-document
-  .querySelector("#login-form")
-  .addEventListener("submit", loginFormHandler);
+document.querySelector("#login-form").addEventListener("submit", loginFormHandler);
